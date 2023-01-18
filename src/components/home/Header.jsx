@@ -1,12 +1,12 @@
-import { Facebook, Google } from "@mui/icons-material";
-import { Button } from "@mui/material";
+/* import { Facebook, Google } from "@mui/icons-material";
+import { Button } from "@mui/material"; */
 import NavBar from "../core/NavBar";
 import "./Header.css";
 function Header() {
   return (
     <div id="designHeader">
       {/*       <img src={nameSrc} alt="Restaurant Le Duc" />
-       */}{" "}
+       */}
       {/* <nav>
         <Button variant="text" href="#letter">
           The letter

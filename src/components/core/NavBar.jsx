@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Facebook, Google } from "@mui/icons-material";
+import "./NavBar";
 
 const pages = ["The letter", "The restaurant", "The contact", "The news"];
 const settings = [
@@ -20,9 +21,6 @@ const settings = [
     href="https://www.facebook.com/pages/Le-Duc-243-Blvd-Raspail-Paris/261475457347358"
   />,
   <Button variant="text" startIcon={<Google />}></Button>,
-  "Account",
-  "Dashboard",
-  "Logout",
 ];
 
 function ResponsiveAppBar() {
@@ -47,7 +45,7 @@ function ResponsiveAppBar() {
     "http://restaurantleduc.com/wp-content/themes/leduc/img/skin/logo.png";
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ background: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -65,7 +63,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            <img src={nameSrc} alt="Restaurant Le Duc" />
+            <img src={nameSrc} alt="Restaurant Le Duc" className="image" />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton

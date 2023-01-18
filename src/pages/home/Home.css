@@ -1,1 +1,4 @@
-
+.carousel {
+  position: fixed;
+  width: 100%;
+}
