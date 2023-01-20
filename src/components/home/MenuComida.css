@@ -1,0 +1,40 @@
+.FoodMenu {
+  align-items: center;
+  justify-content: center;
+}
+#smallFish {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  animation-name: movement;
+  animation-duration: 6s;
+  animation-delay: -2s;
+  animation-iteration-count: infinite;
+}
+@keyframes movement {
+  0% {
+    top: 0%;
+    right: 0%;
+    transform: translateY(0%), translateX(0%);
+  }
+  25% {
+    top: -5%;
+    right: -5%;
+    transform: translateY(-5%), translateX(-5%);
+  }
+  50% {
+    top: 2%;
+    right: 2%;
+    transform: translateY(2%), translateX(2%);
+  }
+  75% {
+    top: -4%;
+    right: -7%;
+    transform: translateY(-4%), translateX(-7%);
+  }
+  100% {
+    top: 2%;
+    right: 2%;
+    transform: translateY(2%), translateX(6%);
+  }
+}

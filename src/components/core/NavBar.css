@@ -1,4 +1,4 @@
-.image {
-  width: fit-content;
-  height: fit-content;
+.NavImage {
+  max-width: 90px;
+  max-height: 90px;
 }

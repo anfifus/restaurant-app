@@ -2,6 +2,9 @@ import "./Home.css";
 import Header from "../../components/home/Header";
 import Carousel from "react-material-ui-carousel";
 import ItemCarousel from "../../components/home/ItemCarousel";
+import Restaurant from "../../components/home/Restaurante";
+import Contact from "../../components/home/Contacto";
+import FoodMenu from "../../components/home/Menu.Comida";
 
 const items = [
   { src: "http://restaurantleduc.com/wp-content/uploads/2015/03/2.jpg" },
@@ -10,7 +13,7 @@ const items = [
   { src: "http://restaurantleduc.com/wp-content/uploads/2015/03/5.jpg" },
   { src: "http://restaurantleduc.com/wp-content/uploads/2015/03/6.jpg" },
 ];
-
+const res = 743 - 621;
 function App() {
   return (
     <div className="App">
@@ -19,11 +22,11 @@ function App() {
           <Header />
         </div>
       </header>
-      <section id="home-">
+      <section id="Carousel">
         <Carousel
           indicatorIconButtonProps={{
             style: {
-              bottom: "100px",
+              bottom: { res },
               zIndex: "1",
             },
           }}
@@ -36,6 +39,15 @@ function App() {
             />
           ))}
         </Carousel>
+      </section>
+      <section id="Restaurant">
+        <Restaurant />
+      </section>
+      <section id="FoodMenu">
+        <FoodMenu />
+      </section>
+      <section id="Contact">
+        <Contact />
       </section>
     </div>
   );

@@ -4,7 +4,7 @@ function ItemCarousel(prop) {
     <img
       src={prop.item.src}
       alt={"/2015/03/" + prop.item.index}
-      className="image"
+      className="CarouselImage"
     />
   );
 }

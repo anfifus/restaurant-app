@@ -1,5 +1,6 @@
-.image {
+.CarouselImage {
   width: 100%;
+  height: max-content;
 }
 /* .CarouselImage {
   width: 18vmax;

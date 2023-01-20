@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Facebook, Google } from "@mui/icons-material";
-import "./NavBar";
+import "./NavBar.css";
 
 const pages = ["The letter", "The restaurant", "The contact", "The news"];
 const settings = [
@@ -45,8 +45,8 @@ function ResponsiveAppBar() {
     "http://restaurantleduc.com/wp-content/themes/leduc/img/skin/logo.png";
 
   return (
-    <AppBar position="static" sx={{ background: "white" }}>
-      <Container maxWidth="xl">
+    <AppBar position="static" color="primary">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -63,7 +63,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            <img src={nameSrc} alt="Restaurant Le Duc" className="image" />
+            <img src={nameSrc} alt="Restaurant Le Duc" className="NavImage" />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -74,20 +74,12 @@ function ResponsiveAppBar() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
+              Location
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
@@ -117,14 +109,18 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            <img src={nameSrc} alt="Restaurant Le Duc" />
+            <img src={nameSrc} alt="Restaurant Le Duc" className="NavImage" />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+            alignItems="center"
+            justifyContent="center"
+          >
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}
               </Button>
