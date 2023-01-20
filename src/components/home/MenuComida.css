@@ -1,6 +1,7 @@
 .FoodMenu {
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 #smallFish {
   width: 60px;
@@ -10,6 +11,7 @@
   animation-duration: 6s;
   animation-delay: -2s;
   animation-iteration-count: infinite;
+  z-index: 0;
 }
 @keyframes movement {
   0% {
