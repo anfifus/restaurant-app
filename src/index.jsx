@@ -6,17 +6,33 @@ import "./index.css";
 import Home from "./pages/home/Home";
 import reportWebVitals from "./reportWebVitals";
 
-const theme = createTheme({
+const themeDark = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: "#fcfcfc",
+    },
+    secondary: {
+      main: "#FFFFFF",
+    },
+  },
+});
+
+const themeLight = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#fcfcfc",
+    },
+    secondary: {
+      main: "#FFFFFF",
     },
   },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={themeDark}>
     <React.StrictMode>
       <Home />
     </React.StrictMode>

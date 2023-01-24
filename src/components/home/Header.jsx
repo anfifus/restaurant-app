@@ -21,7 +21,7 @@ function Header() {
           The news
         </Button>
       </nav> */}
-      <NavBar />
+      <NavBar color="secondary" enableColorOnDark={true} />
       {/*   <Button
         variant="text"
         startIcon={<Facebook />}

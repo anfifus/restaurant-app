@@ -1,42 +1,54 @@
+#containerComida {
+  position: relative;
+
+  z-index: 99;
+}
 .FoodMenu {
   align-items: center;
-  justify-content: center;
-  z-index: 1;
+  align-content: center;
+  /*   justify-content: center;
+ */
 }
-#smallFish {
-  width: 60px;
-  height: 60px;
-  position: relative;
+.movementFishUp {
   animation-name: movement;
   animation-duration: 6s;
   animation-delay: -2s;
   animation-iteration-count: infinite;
-  z-index: 0;
+}
+.dispositionFish {
+  position: absolute;
+  display: block;
+}
+#fish {
+  width: 10em;
+  height: 11em;
+  z-index: -1;
+  top: 0%;
+  left: 50%;
+  transform: translate(0%, -50%);
+}
+#smallFish {
+  width: 9em;
+  height: 9em;
+  z-index: -2;
+  top: 0%;
+  left: 75%;
+  transform: translate(0%, -75%);
 }
 @keyframes movement {
   0% {
-    top: 0%;
-    right: 0%;
-    transform: translateY(0%), translateX(0%);
+    transform: translateY(0%);
   }
   25% {
-    top: -5%;
-    right: -5%;
-    transform: translateY(-5%), translateX(-5%);
+    transform: translateY(-25%);
   }
   50% {
-    top: 2%;
-    right: 2%;
-    transform: translateY(2%), translateX(2%);
+    transform: translateY(-50%);
   }
   75% {
-    top: -4%;
-    right: -7%;
-    transform: translateY(-4%), translateX(-7%);
+    transform: translateY(-75%);
   }
   100% {
-    top: 2%;
-    right: 2%;
-    transform: translateY(2%), translateX(6%);
+    transform: translateY(-100%);
   }
 }

@@ -1,4 +1,5 @@
 import { Container } from "@mui/material";
+import "./Contacto.css";
 
 function Contact() {
   return (

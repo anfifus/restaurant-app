@@ -1,4 +1,17 @@
 #Restaurant {
   max-width: 1200px;
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.formatLine {
+  width: 0px;
+  min-height: 30em;
+}
+.formatContent {
+  margin-left: 10em;
+  margin-right: 5em;
+  z-index: 5;
+  position: relative;
 }

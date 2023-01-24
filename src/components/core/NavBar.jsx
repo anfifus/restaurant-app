@@ -45,7 +45,7 @@ function ResponsiveAppBar() {
     "http://restaurantleduc.com/wp-content/themes/leduc/img/skin/logo.png";
 
   return (
-    <AppBar position="static" color="primary">
+    <AppBar position="static">
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Typography
@@ -88,7 +88,9 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" color="inherit">
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -120,7 +122,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
+                sx={{ my: 2, color: "inherit", display: "block" }}
               >
                 {page}
               </Button>
