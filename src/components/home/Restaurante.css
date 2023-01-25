@@ -10,8 +10,8 @@
   min-height: 30em;
 }
 .formatContent {
-  margin-left: 10em;
-  margin-right: 5em;
+  /*margin-left: 10em;
+  margin-right: 5em;*/
   z-index: 5;
   position: relative;
 }
