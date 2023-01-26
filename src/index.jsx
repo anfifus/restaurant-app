@@ -32,7 +32,7 @@ const themeLight = createTheme({
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ThemeProvider theme={themeDark}>
+  <ThemeProvider theme={themeLight}>
     <React.StrictMode>
       <Home />
     </React.StrictMode>

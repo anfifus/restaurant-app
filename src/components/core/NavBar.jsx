@@ -86,8 +86,8 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {pages.map((page, id) => (
+                <MenuItem key={id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" color="inherit">
                     {page}
                   </Typography>
@@ -118,9 +118,9 @@ function ResponsiveAppBar() {
             alignItems="center"
             justifyContent="center"
           >
-            {pages.map((page) => (
+            {pages.map((page, id) => (
               <Button
-                key={page}
+                key={id}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "inherit", display: "block" }}
               >
@@ -151,8 +151,8 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              {settings.map((setting, id) => (
+                <MenuItem key={id} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

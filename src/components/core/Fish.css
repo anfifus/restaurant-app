@@ -1,0 +1,24 @@
+#containerFish {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+#fish {
+  position: relative;
+  width: 10em;
+  height: 11em;
+  z-index: 1;
+  top: 30%;
+  left: -20%;
+  transform: translate(-30%, 40%);
+}
+#smallFish {
+  position: relative;
+  width: 9em;
+  height: 9em;
+  z-index: 2;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -75%);
+}

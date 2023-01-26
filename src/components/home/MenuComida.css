@@ -1,13 +1,17 @@
 #containerComida {
   position: relative;
-
-  z-index: 99;
 }
+.comidaContent {
+  z-index: 6;
+  position: relative;
+}
+
 .FoodMenu {
   align-items: center;
   align-content: center;
-  /*   justify-content: center;
- */
+  z-index: 5;
+  position: relative;
+  justify-content: center;
 }
 .movementFishUp {
   animation-name: movement;
@@ -15,25 +19,9 @@
   animation-delay: -2s;
   animation-iteration-count: infinite;
 }
-.dispositionFish {
-  position: absolute;
-  display: block;
-}
-#fish {
-  width: 10em;
-  height: 11em;
-  z-index: -1;
-  top: 0%;
-  left: 50%;
-  transform: translate(0%, -50%);
-}
-#smallFish {
-  width: 9em;
-  height: 9em;
-  z-index: -2;
-  top: 0%;
-  left: 75%;
-  transform: translate(0%, -75%);
+
+#imageList {
+  overflow: hidden;
 }
 @keyframes movement {
   0% {

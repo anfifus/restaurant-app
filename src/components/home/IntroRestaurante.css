@@ -7,11 +7,13 @@
 
 .formatLine {
   width: 0px;
-  min-height: 30em;
+  min-height: 15em;
 }
 .formatContent {
-  /*margin-left: 10em;
-  margin-right: 5em;*/
+  justify-content: center;
+  align-items: center;
+  margin-left: 10em;
+  margin-right: 5em;
   z-index: 5;
   position: relative;
 }

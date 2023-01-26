@@ -1,0 +1,10 @@
+#containerRestaurant {
+  margin: 0 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+.itemsRestaurant {
+  justify-items: center;
+  align-items: center;
+}
