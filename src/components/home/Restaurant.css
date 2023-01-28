@@ -1,10 +1,14 @@
 #containerRestaurant {
   margin: 0 20px;
-  align-items: center;
-  justify-items: center;
 }
 
 .itemsRestaurant {
   justify-items: center;
   align-items: center;
+}
+.positionImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 347px;
 }

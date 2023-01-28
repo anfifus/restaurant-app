@@ -28,7 +28,9 @@ function Restaurant() {
         </Grid>
         <Grid container id="containerRestaurant">
           <Grid item xs={4} className="itemsRestaurant">
-            <img src={h1} alt="h1" className="img" />
+            <div className="positionImage">
+              <img src={h1} alt="h1" className="img" />
+            </div>
             <Typography variant="h6" fontSize={"40px"}>
               Notre histoire
             </Typography>
@@ -37,7 +39,9 @@ function Restaurant() {
             </Typography>
           </Grid>
           <Grid item xs={4} className="itemsRestaurant">
-            <img src={h2} alt="h2" className="img" />
+            <div className="positionImage">
+              <img src={h2} alt="h2" className="img" />
+            </div>
             <Typography variant="h6" fontSize={"40px"}>
               Nos produits
             </Typography>
@@ -47,7 +51,7 @@ function Restaurant() {
           </Grid>
 
           <Grid item xs={4} className="itemsRestaurant">
-            <div>
+            <div className="positionImage">
               <img src={h3} alt="h3" className="img" />
             </div>
             {/* centrar la imatge dins del div perque les imatges són més petites que la del mig i per tant necessitem el div per centrar-la i quedi del mateix tamany*/}
