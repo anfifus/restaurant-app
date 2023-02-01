@@ -43,7 +43,7 @@ function App() {
           ))}
         </Carousel>
       </section>
-      <section id="Restaurant">
+      <section id="introRestaurant">
         <IntroRestaurant />
       </section>
       <section id="FoodMenu">
