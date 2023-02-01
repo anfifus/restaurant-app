@@ -2,6 +2,10 @@
   width: 100%;
   height: max-content;
 }
+.CarouselImage2{
+  width: 50%;
+  height: max-content;
+}
 /* .CarouselImage {
   width: 18vmax;
   height: 18vmax;
