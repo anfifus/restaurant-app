@@ -17,7 +17,6 @@ import r4 from "../../components/Images/r-4.jpg";
 import { createTheme } from "@mui/material";
 import { ThemeContext, ThemeProvider } from "@emotion/react";
 import { useState } from "react";
-import ThemeButton from "../../components/core"
 
 const items = [
   { src: "http://restaurantleduc.com/wp-content/uploads/2015/03/2.jpg" },
@@ -54,22 +53,16 @@ const themeLight = createTheme({
 
 const themeContext = React.createContext({
   theme: themeLight,
-  setTheme: () => {
-    const[themeValue,setTheme] = useState(themeLight)
-    setTheme (() => {
-      changeTheme(themeValue)
-    }) 
-  },
+  setTheme: () => {},
 });
-function changeTheme(themeValue){
-  return themeValue === themeLight ? themeDark : themeLight;
-}
+
 function App() {
   return (
     <ThemeContext.Provider
-      value={
-        themeContext.theme
-      }
+      value={{
+        theme: themeLight,
+        setTheme: () => {},
+      }}
     >
       <ThemeProvider theme={themeLight}>
         <div className="App">
@@ -78,7 +71,6 @@ function App() {
               <Header />
             </div>
           </header>
-          <ThemeButton></ThemeButton>
 
           <section id="Carousel">
             <Carousel
