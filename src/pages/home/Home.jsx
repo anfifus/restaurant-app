@@ -57,11 +57,11 @@ const themeContext = React.createContext({
   setTheme: () => {
     const[themeValue,setTheme] = useState(themeLight)
     setTheme (() => {
-      changeTheme
+      changeTheme(themeValue)
     }) 
   },
 });
-function changeTheme(){
+function changeTheme(themeValue){
   return themeValue === themeLight ? themeDark : themeLight;
 }
 function App() {
