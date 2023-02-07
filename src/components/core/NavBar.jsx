@@ -12,6 +12,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Facebook, Google } from "@mui/icons-material";
 import "./NavBar.css";
+import { ThemeContext } from "../..";
 
 const pages = ["The letter", "The restaurant", "The contact", "The news"];
 const settings = [
@@ -41,9 +42,9 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const nameSrc =
+  const lightSrc =
     "http://restaurantleduc.com/wp-content/themes/leduc/img/skin/logo.png";
-
+  const darkSrc = "logo-dark.png";
   return (
     <AppBar position="static">
       <Container maxWidth="lg">
@@ -63,7 +64,19 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            <img src={nameSrc} alt="Restaurant Le Duc" className="NavImage" />
+            <ThemeContext.Consumer>
+              {({ theme }) => (
+                <>
+                  <img
+                    src={theme === "light" ? lightSrc : darkSrc}
+                    alt="Restaurant Le Duc"
+                    className="NavImage"
+                  />
+                </>
+              )}
+            </ThemeContext.Consumer>
+
+            {/* logo */}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -111,7 +124,15 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            <img src={nameSrc} alt="Restaurant Le Duc" className="NavImage" />
+            <ThemeContext.Consumer>
+              {(theme) => (
+                <img
+                  src={theme === "light" ? lightSrc : darkSrc}
+                  alt="Restaurant Le Duc"
+                  className="NavImage"
+                />
+              )}
+            </ThemeContext.Consumer>
           </Typography>
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}

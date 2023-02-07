@@ -3,8 +3,8 @@ import React from "react";
 
 import Header from "../../components/home/Header";
 import Carousel from "react-material-ui-carousel";
-import ItemCarousel from "../../components/home/ItemCarousel";
-import IntroRestaurant from "../../components/home/IntroRestaurante";
+/* import ItemCarousel from "../../components/home/ItemCarousel";
+ */ import IntroRestaurant from "../../components/home/IntroRestaurante";
 import Contact from "../../components/home/Contacto";
 import FoodMenu from "../../components/home/Menu.Comida";
 import Fish from "../../components/core/Fish";
@@ -14,9 +14,6 @@ import r1 from "../../components/Images/r-1.jpg";
 import r2 from "../../components/Images/r-2.jpg";
 import r3 from "../../components/Images/r-3.jpg";
 import r4 from "../../components/Images/r-4.jpg";
-import { createTheme } from "@mui/material";
-import { ThemeProvider } from "@emotion/react";
-import { useState } from "react";
 import { ThemeContext } from "../..";
 
 const items = [
