@@ -9,24 +9,26 @@ import { createContext, useState } from "react";
 const DEFAUT_THEME = "light";
 
 const getDesignPalette = (mode) => ({
-  mode,
-  ...(mode === DEFAUT_THEME
-    ? {
-        primary: {
-          main: "#fcfcfc",
-        },
-        secondary: {
-          main: "#FFFFFF",
-        },
-      }
-    : {
-        primary: {
-          main: "#212121",
-        },
-        secondary: {
-          main: "#212124",
-        },
-      }),
+  palette: {
+    mode,
+    ...(mode === DEFAUT_THEME
+      ? {
+          primary: {
+            main: "#0a95ff",
+          },
+          secondary: {
+            main: "#ffffff",
+          },
+        }
+      : {
+          primary: {
+            main: "#BB86FC",
+          },
+          secondary: {
+            main: "#3700B3",
+          },
+        }),
+  },
 });
 /* const themeDark = createTheme({
   palette: {
@@ -46,16 +48,14 @@ export const ThemeContext = createContext({
 
 function App() {
   const [theme, setTheme] = useState(DEFAUT_THEME);
-
-  const changeTheme = () =>{
+  const changeTheme = () =>
     setTheme(theme === DEFAUT_THEME ? "dark" : DEFAUT_THEME);
-  }
   return (
     <>
       <ThemeContext.Provider
         value={{
-          theme: theme,
-          setTheme: changeTheme,
+          theme,
+          changeTheme,
         }}
       >
         <ThemeProvider theme={createTheme(getDesignPalette(theme))}>

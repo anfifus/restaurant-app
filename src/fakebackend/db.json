@@ -1,0 +1,14 @@
+{
+  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": [
+    {
+      "id": 1,
+      "name": "Pere",
+      "surname": "Alvarez",
+      "edad": 31,
+      "email": "anfifus@gmail.com",
+      "foto": "https://img.fotocommunity.com/wolfgangsee-42a663fb-0bb6-46d0-b0ba-25e6289cf576.jpg?height=1080"
+    }
+  ]
+}
