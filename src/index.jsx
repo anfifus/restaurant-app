@@ -21,10 +21,10 @@ const getDesignPalette = (mode) => ({
       }
     : {
         primary: {
-          main: "#fcfcfc",
+          main: "#212121",
         },
         secondary: {
-          main: "#FFFFFF",
+          main: "#212124",
         },
       }),
 });
@@ -46,8 +46,10 @@ export const ThemeContext = createContext({
 
 function App() {
   const [theme, setTheme] = useState(DEFAUT_THEME);
-  const changeTheme = () =>
+
+  const changeTheme = () =>{
     setTheme(theme === DEFAUT_THEME ? "dark" : DEFAUT_THEME);
+  }
   return (
     <>
       <ThemeContext.Provider
@@ -61,7 +63,7 @@ function App() {
         </ThemeProvider>
       </ThemeContext.Provider>
     </>
-  );
+    );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
