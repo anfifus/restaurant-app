@@ -6,6 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { createContext, useState } from "react";
+import "./i18n";
+
 const DEFAUT_THEME = "light";
 
 const getDesignPalette = (mode) => ({

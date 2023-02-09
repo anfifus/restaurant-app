@@ -1,4 +1,5 @@
-import * as React from "react";
+//import * as React from "react";
+import React, { Suspense } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,8 +14,10 @@ import MenuItem from "@mui/material/MenuItem";
 import { Facebook, Google } from "@mui/icons-material";
 import "./NavBar.css";
 import { ThemeContext } from "../..";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import { useEffect } from "react";
 
-const pages = ["The letter", "The restaurant", "The contact", "The news"];
 const settings = [
   <Button
     variant="text"
@@ -25,6 +28,8 @@ const settings = [
 ];
 
 function ResponsiveAppBar() {
+  const { t, i18n } = useTranslation();
+  const pages = ["The letter", "The restaurant", "The contact", "The news"];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -42,9 +47,28 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const DEFAULT_LANGUAGE = "es";
   const lightSrc =
     "http://restaurantleduc.com/wp-content/themes/leduc/img/skin/logo.png";
   const darkSrc = "logo-dark.png";
+  /*   const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
+   */
+  function ChangeLanguage() {
+    /*  setLanguage(language === DEFAULT_LANGUAGE ? "ca" : "es");
+    console.log(i18n);
+    i18n.changeLanguage(language, (err, t) => {
+      if (err) return console.console.log("something went wrong loading", err);
+    });
+    return language; */
+
+    i18n.changeLanguage(
+      i18n.language === DEFAULT_LANGUAGE ? "ca" : "es",
+      (err, t) => {
+        if (err)
+          return console.console.log("something went wrong loading", err);
+      }
+    );
+  }
   return (
     <AppBar position="static">
       <Container maxWidth="lg">
@@ -102,7 +126,7 @@ function ResponsiveAppBar() {
               {pages.map((page, id) => (
                 <MenuItem key={id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" color="inherit">
-                    {page}
+                    <Suspense fallback="loading">{t(page)}</Suspense>
                   </Typography>
                 </MenuItem>
               ))}
@@ -145,7 +169,10 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "inherit", display: "block" }}
               >
-                {page}
+                <Suspense fallback="loading">
+                  {console.log("The letter--> ", t(page))}
+                  {t(page)}
+                </Suspense>
               </Button>
             ))}
           </Box>
@@ -178,6 +205,9 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
+            <Button onClick={ChangeLanguage} id="buttonLanguage">
+              {i18n.language}
+            </Button>
           </Box>
         </Toolbar>
       </Container>
