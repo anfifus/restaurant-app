@@ -50,10 +50,8 @@ export const ThemeContext = createContext({
 
 function App() {
   const [theme, setTheme] = useState(DEFAUT_THEME);
-  console.log("The theme", { theme });
-  const changeTheme = () => {
+  const changeTheme = () =>
     setTheme(theme === DEFAUT_THEME ? "dark" : DEFAUT_THEME);
-  };
   return (
     <>
       <ThemeContext.Provider
@@ -67,7 +65,7 @@ function App() {
         </ThemeProvider>
       </ThemeContext.Provider>
     </>
-  );
+    );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
