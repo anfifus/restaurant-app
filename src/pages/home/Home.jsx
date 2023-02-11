@@ -6,7 +6,7 @@ import Carousel from "react-material-ui-carousel";
 /* import ItemCarousel from "../../components/home/ItemCarousel";
  */ import IntroRestaurant from "../../components/home/IntroRestaurante";
 import Contact from "../../components/home/Contacto";
-import FoodMenu from "../../components/home/Menu.Comida";
+import FoodMenu from "../../components/home/MenuComida";
 import Fish from "../../components/core/Fish";
 import { Box, Button } from "@mui/material";
 import Restaurant from "../../components/home/Restaurant";
@@ -85,15 +85,15 @@ function App() {
         </Carousel>
       </section>
       <section id="introRestaurant">
-        <IntroRestaurant />
+        <IntroRestaurant color="secondary" enableColorOnDark={true} />
       </section>
-      <section id="FoodMenu">
+      <section id="The-letter">
         <Box maxWidth="100%">
           <Fish />
           <FoodMenu />
         </Box>
       </section>
-      <section id="restaurant">
+      <section id="The-restaurant">
         <Restaurant />
       </section>
       <section id="carouselRestaurant">
@@ -118,7 +118,7 @@ function App() {
           </Carousel>
         </div>
       </section>
-      <section id="Contact">
+      <section id="The-contact">
         <Contact />
         <ThemeContext.Consumer>
           {({ theme, changeTheme }) => (

@@ -11,12 +11,12 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { Facebook, Google } from "@mui/icons-material";
+import { Facebook, Google, Add } from "@mui/icons-material";
 import "./NavBar.css";
 import { ThemeContext } from "../..";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const settings = [
   <Button
@@ -25,11 +25,21 @@ const settings = [
     href="https://www.facebook.com/pages/Le-Duc-243-Blvd-Raspail-Paris/261475457347358"
   />,
   <Button variant="text" startIcon={<Google />}></Button>,
+
+  <Link to={"components/home/Reservas"}>
+    <Button variant="text" startIcon={<Add />}></Button>
+  </Link>,
 ];
 
 function ResponsiveAppBar() {
   const { t, i18n } = useTranslation();
-  const pages = ["The letter", "The restaurant", "The contact", "The news"];
+  const pages = [
+    "The-letter",
+    "The-restaurant",
+    "The-contact",
+    "The-news",
+    "Reservation",
+  ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -48,6 +58,7 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
   const DEFAULT_LANGUAGE = "es";
+  const DEFAULT_THEME = "light";
   const lightSrc =
     "http://restaurantleduc.com/wp-content/themes/leduc/img/skin/logo.png";
   const darkSrc = "logo-dark.png";
@@ -92,7 +103,7 @@ function ResponsiveAppBar() {
               {({ theme }) => (
                 <>
                   <img
-                    src={theme === "light" ? lightSrc : darkSrc}
+                    src={theme === DEFAULT_THEME ? lightSrc : darkSrc}
                     alt="Restaurant Le Duc"
                     className="NavImage"
                   />
@@ -109,7 +120,6 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
               Location
               <MenuIcon />
@@ -126,7 +136,13 @@ function ResponsiveAppBar() {
               {pages.map((page, id) => (
                 <MenuItem key={id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" color="inherit">
-                    <Suspense fallback="loading">{t(page)}</Suspense>
+                    <Suspense fallback="loading">
+                      <HashLink
+                        to={page === "Reservation" ? "/" + page : "/#" + page}
+                      >
+                        {t(page)}
+                      </HashLink>
+                    </Suspense>
                   </Typography>
                 </MenuItem>
               ))}
@@ -150,11 +166,13 @@ function ResponsiveAppBar() {
           >
             <ThemeContext.Consumer>
               {(theme) => (
-                <img
-                  src={theme === "light" ? lightSrc : darkSrc}
-                  alt="Restaurant Le Duc"
-                  className="NavImage"
-                />
+                <>
+                  <img
+                    src={theme === DEFAULT_THEME ? lightSrc : darkSrc}
+                    alt="Restaurant Le Duc"
+                    className="NavImage"
+                  />
+                </>
               )}
             </ThemeContext.Consumer>
           </Typography>
@@ -171,7 +189,11 @@ function ResponsiveAppBar() {
               >
                 <Suspense fallback="loading">
                   {console.log("The letter--> ", t(page))}
-                  {t(page)}
+                  <HashLink
+                    to={page === "Reservation" ? "/" + page : "/#" + page}
+                  >
+                    {t(page)}
+                  </HashLink>
                 </Suspense>
               </Button>
             ))}
@@ -205,9 +227,9 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
-            <Button onClick={ChangeLanguage} id="buttonLanguage">
-              {i18n.language}
-            </Button>
+            <IconButton onClick={ChangeLanguage} id="buttonLanguage">
+              <span sx={{ color: "inherit" }}> {i18n.language}</span>
+            </IconButton>
           </Box>
         </Toolbar>
       </Container>

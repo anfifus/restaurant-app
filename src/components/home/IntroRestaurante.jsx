@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { AppBar, Container } from "@mui/material";
 import "./IntroRestaurante.css";
 
 function IntroRestaurant() {
