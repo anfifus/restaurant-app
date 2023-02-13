@@ -1,4 +1,8 @@
 #designHeader {
   display: flex;
   flex-direction: row;
+  position: fixed;
+  z-index: 99;
+  min-height: 64px;
+  width: 100%;
 }

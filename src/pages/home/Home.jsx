@@ -55,45 +55,45 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          <Header />
-        </div>
+        <Header />
       </header>
 
-      <section id="Carousel">
-        <Carousel
-          indicatorIconButtonProps={{
-            style: {
-              bottom: { res },
-              zIndex: "1",
-            },
-          }}
-        >
-          {items.map((item, index) => (
-            /* <ItemCarousel
+      <div id="carouselFood">
+        <div>
+          <Carousel
+            indicatorIconButtonProps={{
+              style: {
+                bottom: { res },
+                zIndex: "1",
+              },
+            }}
+          >
+            {items.map((item, index) => (
+              /* <ItemCarousel
               key={"2015/03/" + index}
               item={item}
               className="images"
             /> */
-            <img
-              key={"2015/03/" + index}
-              src={item.src}
-              alt={"2015/03/" + index}
-              className="CarouselImage"
-            />
-          ))}
-        </Carousel>
-      </section>
+              <img
+                key={"2015/03/" + index}
+                src={item.src}
+                alt={"2015/03/" + index}
+                className="CarouselImage"
+              />
+            ))}
+          </Carousel>
+        </div>
+      </div>
       <section id="introRestaurant">
         <IntroRestaurant color="secondary" enableColorOnDark={true} />
       </section>
-      <section id="The-letter">
+      <section id="the-letter">
         <Box maxWidth="100%">
           <Fish />
           <FoodMenu />
         </Box>
       </section>
-      <section id="The-restaurant">
+      <section id="the-restaurant">
         <Restaurant />
       </section>
       <section id="carouselRestaurant">
@@ -118,7 +118,7 @@ function App() {
           </Carousel>
         </div>
       </section>
-      <section id="The-contact">
+      <section id="the-contact">
         <Contact />
         <ThemeContext.Consumer>
           {({ theme, changeTheme }) => (

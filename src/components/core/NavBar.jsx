@@ -17,6 +17,8 @@ import { ThemeContext } from "../..";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { RouterContext } from "../..";
+import { CssBaseline, useScrollTrigger } from "@mui/material";
 
 const settings = [
   <Button
@@ -30,15 +32,34 @@ const settings = [
     <Button variant="text" startIcon={<Add />}></Button>
   </Link>,
 ];
+function SrinkScroll(props) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 62,
+    target: window ? window() : undefined,
+  });
 
-function ResponsiveAppBar() {
+  return React.cloneElement(children, {
+    className: trigger ? "no-shrink" : "shrink",
+  });
+}
+
+function ResponsiveAppBar(props) {
   const { t, i18n } = useTranslation();
-  const pages = [
+  /*   const pages = [
     "The-letter",
     "The-restaurant",
     "The-contact",
     "The-news",
     "Reservation",
+  ]; */
+  const pages2 = [
+    { title: "The letter", route: "/#the-letter" },
+    { title: "The restaurant", route: "/#the-restaurant" },
+    { title: "The contact", route: "/#the-contact" },
+    { title: "The news", route: "/#the-news" },
+    { title: "Reservation", route: "/reservation" },
   ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -50,7 +71,7 @@ function ResponsiveAppBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (event) => {
     setAnchorElNav(null);
   };
 
@@ -65,175 +86,174 @@ function ResponsiveAppBar() {
   /*   const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
    */
   function ChangeLanguage() {
-    /*  setLanguage(language === DEFAULT_LANGUAGE ? "ca" : "es");
-    console.log(i18n);
-    i18n.changeLanguage(language, (err, t) => {
-      if (err) return console.console.log("something went wrong loading", err);
-    });
-    return language; */
-
     i18n.changeLanguage(
       i18n.language === DEFAULT_LANGUAGE ? "ca" : "es",
-      (err, t) => {
-        if (err)
-          return console.console.log("something went wrong loading", err);
+      (err) => {
+        if (err) return console.log("something went wrong loading", err);
       }
     );
   }
   return (
-    <AppBar position="static">
-      <Container maxWidth="lg">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            <ThemeContext.Consumer>
-              {({ theme }) => (
-                <>
-                  <img
-                    src={theme === DEFAULT_THEME ? lightSrc : darkSrc}
-                    alt="Restaurant Le Duc"
-                    className="NavImage"
-                  />
-                </>
-              )}
-            </ThemeContext.Consumer>
+    <Box className="containerNavbar">
+      <CssBaseline>
+        <SrinkScroll {...props}>
+          <AppBar position="static">
+            <Container maxWidth="lg">
+              <Toolbar disableGutters>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="a"
+                  href="/"
+                  sx={{
+                    mr: 2,
+                    display: { xs: "none", md: "flex" },
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".3rem",
+                    color: "inherit",
+                    textDecoration: "none",
+                  }}
+                >
+                  <ThemeContext.Consumer>
+                    {({ theme }) => (
+                      <>
+                        <img
+                          src={theme === DEFAULT_THEME ? lightSrc : darkSrc}
+                          alt="Restaurant Le Duc"
+                          className="NavImage"
+                        />
+                      </>
+                    )}
+                  </ThemeContext.Consumer>
 
-            {/* logo */}
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-            >
-              Location
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page, id) => (
-                <MenuItem key={id} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" color="inherit">
-                    <Suspense fallback="loading">
-                      <HashLink
-                        to={page === "Reservation" ? "/" + page : "/#" + page}
-                      >
-                        {t(page)}
-                      </HashLink>
-                    </Suspense>
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            <ThemeContext.Consumer>
-              {(theme) => (
-                <>
-                  <img
-                    src={theme === DEFAULT_THEME ? lightSrc : darkSrc}
-                    alt="Restaurant Le Duc"
-                    className="NavImage"
-                  />
-                </>
-              )}
-            </ThemeContext.Consumer>
-          </Typography>
-          <Box
-            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            alignItems="center"
-            justifyContent="center"
-          >
-            {pages.map((page, id) => (
-              <Button
-                key={id}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "inherit", display: "block" }}
-              >
-                <Suspense fallback="loading">
-                  {console.log("The letter--> ", t(page))}
-                  <HashLink
-                    to={page === "Reservation" ? "/" + page : "/#" + page}
+                  {/* logo */}
+                </Typography>
+                <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                  <IconButton
+                    size="large"
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={handleOpenNavMenu}
                   >
-                    {t(page)}
-                  </HashLink>
-                </Suspense>
-              </Button>
-            ))}
-          </Box>
+                    Location
+                    <MenuIcon />
+                  </IconButton>
+                  <Menu
+                    id="menu-appbar"
+                    anchorEl={anchorElNav}
+                    open={Boolean(anchorElNav)}
+                    onClose={handleCloseNavMenu}
+                    sx={{
+                      display: { xs: "block", md: "none" },
+                    }}
+                  >
+                    {pages2.map((page, id) => (
+                      <MenuItem key={id} /* onClick={handleCloseNavMenu} */>
+                        <Typography textAlign="center" color="inherit">
+                          <Suspense fallback="loading">
+                            {page.route.includes("#") ? (
+                              <HashLink to={page.route}>
+                                {t(page.title)}{" "}
+                              </HashLink>
+                            ) : (
+                              <Link to={page.route}>{t(page.title)}</Link>
+                            )}
+                          </Suspense>
+                        </Typography>
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </Box>
+                <Typography
+                  variant="h5"
+                  noWrap
+                  component="a"
+                  href=""
+                  sx={{
+                    mr: 2,
+                    display: { xs: "flex", md: "none" },
+                    flexGrow: 1,
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".3rem",
+                    color: "inherit",
+                    textDecoration: "none",
+                  }}
+                >
+                  <ThemeContext.Consumer>
+                    {(theme) => (
+                      <>
+                        <img
+                          src={theme === DEFAULT_THEME ? lightSrc : darkSrc}
+                          alt="Restaurant Le Duc"
+                          className="NavImage"
+                        />
+                      </>
+                    )}
+                  </ThemeContext.Consumer>
+                </Typography>
+                <Box
+                  sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  {pages2.map((page, id) => (
+                    <Button
+                      key={id}
+                      onClick={handleCloseNavMenu}
+                      sx={{ my: 2, color: "inherit", display: "block" }}
+                    >
+                      <Suspense fallback="loading">
+                        {page.route.includes("#") ? (
+                          <HashLink to={page.route}>{t(page.title)} </HashLink>
+                        ) : (
+                          <Link to={page.route}>{t(page.title)}</Link>
+                        )}
+                      </Suspense>
+                    </Button>
+                  ))}
+                </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                Social
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting, id) => (
-                <MenuItem key={id} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-            <IconButton onClick={ChangeLanguage} id="buttonLanguage">
-              <span sx={{ color: "inherit" }}> {i18n.language}</span>
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+                <Box sx={{ flexGrow: 0 }}>
+                  <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      Social
+                    </IconButton>
+                  </Tooltip>
+                  <Menu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    {settings.map((setting, id) => (
+                      <MenuItem key={id} onClick={handleCloseUserMenu}>
+                        <Typography textAlign="center">{setting}</Typography>
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                  <IconButton onClick={ChangeLanguage} id="buttonLanguage">
+                    <span sx={{ color: "inherit" }}> {i18n.language}</span>
+                  </IconButton>
+                </Box>
+              </Toolbar>
+            </Container>
+          </AppBar>
+        </SrinkScroll>
+      </CssBaseline>
+    </Box>
   );
 }
 export default ResponsiveAppBar;
