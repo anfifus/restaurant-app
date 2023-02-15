@@ -1,6 +1,5 @@
 /* import { Facebook, Google } from "@mui/icons-material";
 import { Button } from "@mui/material"; */
-import NavBar from "../core/NavBar";
 import "./Header.css";
 function Header() {
   return (
@@ -21,7 +20,7 @@ function Header() {
           The news
         </Button>
       </nav> */}
-      <NavBar color="secondary" enableColorOnDark={true} />
+
       {/*   <Button
         variant="text"
         startIcon={<Facebook />}

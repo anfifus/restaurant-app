@@ -10,6 +10,8 @@ import FoodMenu from "../../components/home/MenuComida";
 import Fish from "../../components/core/Fish";
 import { Box, Button } from "@mui/material";
 import Restaurant from "../../components/home/Restaurant";
+import NavBar from "../../components/core/NavBar";
+
 import r1 from "../../components/Images/r-1.jpg";
 import r2 from "../../components/Images/r-2.jpg";
 import r3 from "../../components/Images/r-3.jpg";
@@ -55,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Header />
+        <NavBar color="secondary" enableColorOnDark={true} />
       </header>
 
       <div id="carouselFood">
