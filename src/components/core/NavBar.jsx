@@ -32,13 +32,13 @@ const settings = [
 ];
 
 function ResponsiveAppBar() {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("translation");
   const pages = [
-    "The-letter",
-    "The-restaurant",
-    "The-contact",
-    "The-news",
-    "Reservation",
+    "the_letter",
+    "the_restaurant",
+    "the_contact",
+    "the_news",
+    "reservation",
   ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -73,7 +73,11 @@ function ResponsiveAppBar() {
     return language; */
 
     i18n.changeLanguage(
-      i18n.language === DEFAULT_LANGUAGE ? "ca" : "es",
+      i18n.language === DEFAULT_LANGUAGE
+        ? "fr"
+        : i18n.language === "fr"
+        ? "ca"
+        : "es",
       (err, t) => {
         if (err)
           return console.console.log("something went wrong loading", err);

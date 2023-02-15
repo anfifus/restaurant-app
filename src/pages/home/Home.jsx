@@ -57,13 +57,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-<<<<<<< HEAD
-        <NavBar color="secondary" enableColorOnDark={true} />
-=======
         <div>
-          <Header />
+          <NavBar color="secondary" enableColorOnDark={true} />
         </div>
->>>>>>> 436e0e9bc92b449ad605c290d847b9814e7bf8aa
       </header>
 
       <section id="Carousel">

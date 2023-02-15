@@ -1,0 +1,26 @@
+{
+  "c_restaurante": {
+    "titulo": {
+      "seccion": "Contact",
+      "nombre_restaurante": "Restaurant Le Duc"
+    },
+    "texto": {
+      "calle_restaurante": "243 bd Raspail",
+      "codigo_postal": "75014 PARIS",
+      "nombre_restaurante": "Le Duc",
+      "dias": "Du lundi au samedi",
+      "telefonos": [
+        {
+          "1": "01 43 22 59 59",
+          "2": "01 43 20 96 30",
+          "3": "06 23 79 32 36"
+        }
+      ],
+      "telefono_1": "01 43 22 59 59",
+      "telefono_2": "01 43 20 96 30",
+      "horario": "En dehors des heures d'ouverture",
+      "telefono_3": "06 23 79 32 36",
+      "correo": "dominique.minchelli@restaurantleduc.com"
+    }
+  }
+}
