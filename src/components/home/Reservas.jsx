@@ -1,17 +1,13 @@
 import Header from "./Header";
 import { ThemeContext } from "../..";
 import { Button } from "@mui/material";
-import "./Reservas.css";
 
 function Reservas() {
   return (
     <section id="Reservation">
-      <div className="containerHeader">
-        <header className="App-header">
-          <Header />
-        </header>
-      </div>
-
+      <header className="App-header">
+        <Header />
+      </header>
       <section id="Contact">
         <ThemeContext.Consumer>
           {({ theme, changeTheme }) => (
@@ -19,6 +15,7 @@ function Reservas() {
           )}
         </ThemeContext.Consumer>
       </section>
+      <p>Hola</p>
     </section>
   );
 }

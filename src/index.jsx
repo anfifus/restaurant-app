@@ -54,14 +54,13 @@ export const ThemeContext = createContext({
   theme: DEFAUT_THEME,
   changeTheme: () => {},
 });
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
   },
   {
-    path: "/reservation",
+    path: "/Reservation",
     element: <Reservas />,
   },
   /* {

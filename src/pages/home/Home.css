@@ -1,5 +1,6 @@
-#carouselFood {
-  margin-top: 68.5px;
+.carousel {
+  position: fixed;
+  width: 100%;
 }
 #carouselRestaurant {
   margin-left: 25%;
@@ -13,8 +14,4 @@
 .CarouselImage2 {
   height: max-content;
   width: fit-content;
-}
-.App-header {
-  display: flex;
-  flex-direction: column;
 }

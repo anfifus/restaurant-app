@@ -57,45 +57,49 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+<<<<<<< HEAD
         <NavBar color="secondary" enableColorOnDark={true} />
+=======
+        <div>
+          <Header />
+        </div>
+>>>>>>> 436e0e9bc92b449ad605c290d847b9814e7bf8aa
       </header>
 
-      <div id="carouselFood">
-        <div>
-          <Carousel
-            indicatorIconButtonProps={{
-              style: {
-                bottom: { res },
-                zIndex: "1",
-              },
-            }}
-          >
-            {items.map((item, index) => (
-              /* <ItemCarousel
+      <section id="Carousel">
+        <Carousel
+          indicatorIconButtonProps={{
+            style: {
+              bottom: { res },
+              zIndex: "1",
+            },
+          }}
+        >
+          {items.map((item, index) => (
+            /* <ItemCarousel
               key={"2015/03/" + index}
               item={item}
               className="images"
             /> */
-              <img
-                key={"2015/03/" + index}
-                src={item.src}
-                alt={"2015/03/" + index}
-                className="CarouselImage"
-              />
-            ))}
-          </Carousel>
-        </div>
-      </div>
+            <img
+              key={"2015/03/" + index}
+              src={item.src}
+              alt={"2015/03/" + index}
+              className="CarouselImage"
+            />
+          ))}
+        </Carousel>
+      </section>
       <section id="introRestaurant">
         <IntroRestaurant color="secondary" enableColorOnDark={true} />
       </section>
-      <section id="the-letter">
+      <section id="The-letter">
         <Box maxWidth="100%">
           <Fish />
           <FoodMenu />
         </Box>
       </section>
-      <section id="the-restaurant">
+      <section id="The-restaurant">
         <Restaurant />
       </section>
       <section id="carouselRestaurant">
@@ -120,7 +124,7 @@ function App() {
           </Carousel>
         </div>
       </section>
-      <section id="the-contact">
+      <section id="The-contact">
         <Contact />
         <ThemeContext.Consumer>
           {({ theme, changeTheme }) => (
