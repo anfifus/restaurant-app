@@ -1,6 +1,6 @@
 import "./Home.css";
 import React from "react";
-
+import NavBar from "../../components/core/NavBar";
 import Header from "../../components/home/Header";
 import Carousel from "react-material-ui-carousel";
 /* import ItemCarousel from "../../components/home/ItemCarousel";
@@ -55,8 +55,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          <Header />
+        <div className="navContainer">
+          <NavBar color="secondary" enableColorOnDark={true} />
         </div>
       </header>
 

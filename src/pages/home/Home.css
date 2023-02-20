@@ -1,6 +1,7 @@
-.carousel {
+.navContainer {
   position: fixed;
   width: 100%;
+  z-index: 99;
 }
 #carouselRestaurant {
   margin-left: 25%;
@@ -14,4 +15,14 @@
 .CarouselImage2 {
   height: max-content;
   width: fit-content;
+}
+#Carousel{
+  margin-top: 68.5px;
+
+}
+.App-header{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
 }

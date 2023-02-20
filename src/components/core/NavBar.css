@@ -5,3 +5,11 @@
 #buttonLanguage {
   color: black;
 }
+.shrink {
+  padding: 30px 0;
+  transition: 0.2!important;
+}
+.no-shrink {
+  padding: 0px 0;
+  transition: 0.4!important;
+}
