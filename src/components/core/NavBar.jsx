@@ -32,7 +32,7 @@ const settings = [
   </Link>,
 ];
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar(props) {
   const { t, i18n } = useTranslation("translation");
   const pages = [
     "the_letter",
