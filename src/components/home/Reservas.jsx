@@ -1,6 +1,6 @@
 import NavBar from "../core/NavBar";
 import { ThemeContext } from "../..";
-import { Button } from "@mui/material";
+import { Button, Dialog } from "@mui/material";
 import { useForm } from "react-hook-form";
 import React from "react";
 import TextField from "@mui/material/TextField";
@@ -8,16 +8,16 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useState } from "react";
-import "./Reservas.css"
+import "./Reservas.css";
 function Reservas() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-/*     setError,
- */  } = useForm();
+    /*     setError,
+     */
+  } = useForm();
 
-  
   /*  React.useEffect(() => {
     setError("hora", {
       types: {
@@ -27,24 +27,31 @@ function Reservas() {
     });
   }, [setError]); */
   const [value, setValue] = useState(null);
+  const [open, setOpen] = useState(false);
 
-  const onSubmit = (data) => { 
-    console.log(data)
-    fetch("https://formsubmit.co/anfifus@gmail.com",{
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const onSubmit = (data) => {
+    fetch("https://formsubmit.co/anfifus@gmail.com", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    },
-    body: JSON.stringify({
-       name: "FormReservas",
-       message: "Hello this is from reservas of the restaurant"
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.ok)
+      .then(() => {
+        console.log("fet");
       })
-    }).then(response => response.json())
-      .then(data=> console.log(data))
-      .catch(error => console.log(error));
-  }
- 
+      .catch((error) => console.log(error));
+  };
+
   return (
     <section id="Reservation">
       <header className="App-header">
@@ -57,7 +64,11 @@ function Reservas() {
           )}
         </ThemeContext.Consumer>
       </section>
-      <form target="_blank" onSubmit = {handleSubmit(onSubmit)}  method = "POST" className = "designForm">
+      <form
+        target="_blank"
+        onSubmit={handleSubmit(onSubmit)}
+        className="designForm"
+      >
         <TextField
           {...register("nombreCompleto", {
             required: true,
@@ -106,6 +117,7 @@ function Reservas() {
         <br />
 
         <LocalizationProvider dateAdapter={AdapterDayjs}>
+          {/*Va el controller*/}
           <DatePicker
             label="Basic example"
             value={value}
@@ -141,7 +153,9 @@ function Reservas() {
           <span>The hour must be equal or inferior to 23</span>
         )}
         <br />
-        <Button variant="contained" type="submit">Submit</Button>
+        <Button variant="contained" type="submit">
+          Submit
+        </Button>
       </form>
     </section>
   );

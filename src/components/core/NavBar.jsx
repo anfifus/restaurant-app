@@ -60,23 +60,23 @@ function ResponsiveAppBar(props) {
   };
   const DEFAULT_LANGUAGE = "es";
   const DEFAULT_THEME = "light";
-  const lightSrc =
-    "http://restaurantleduc.com/wp-content/themes/leduc/img/skin/logo.png";
+  const lightSrc = "/logo.png";
   const darkSrc = "logo-dark.png";
   /*   const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
    */
-  function ShrinkScroll(props){
-      const {children, window} = props;
-      const trigger = useScrollTrigger({
-        disableHysteresis: true,
-        threshold: 62,
-        target: window ? window():undefined,
-      });
-      return React.cloneElement(children,{
-        className: trigger ? 'no-shrink' : 'shrink'
-      });
+  function ShrinkScroll(props) {
+    const { children, window } = props;
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold: 62,
+      target: window ? window() : undefined,
+    });
+    return React.cloneElement(children, {
+      className: trigger ? "no-shrink" : "shrink",
+    });
   }
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   function ChangeLanguage() {
     /*  setLanguage(language === DEFAULT_LANGUAGE ? "ca" : "es");
@@ -100,7 +100,7 @@ function ResponsiveAppBar(props) {
   }
   return (
     <Box>
-      <CssBaseline/>
+      <CssBaseline />
       <ShrinkScroll {...props}>
         <AppBar position="static">
           <Container maxWidth="lg">
@@ -120,7 +120,6 @@ function ResponsiveAppBar(props) {
                   textDecoration: "none",
                 }}
               >
-                
                 <ThemeContext.Consumer>
                   {({ theme }) => (
                     <>
@@ -155,13 +154,16 @@ function ResponsiveAppBar(props) {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-{/*                   container={container}
- */}                  {pages.map((page, id) => (
+                  {/*                   container={container}
+                   */}{" "}
+                  {pages.map((page, id) => (
                     <MenuItem key={id} onClick={handleCloseNavMenu}>
                       <Typography textAlign="center" color="inherit">
                         <Suspense fallback="loading">
                           <HashLink
-                            to={page === "Reservation" ? "/" + page : "/#" + page}
+                            to={
+                              page === "Reservation" ? "/" + page : "/#" + page
+                            }
                           >
                             {t(page)}
                           </HashLink>
@@ -211,7 +213,6 @@ function ResponsiveAppBar(props) {
                     sx={{ my: 2, color: "inherit", display: "block" }}
                   >
                     <Suspense fallback="loading">
-                      {console.log("The letter--> ", t(page))}
                       <HashLink
                         to={page === "Reservation" ? "/" + page : "/#" + page}
                       >
@@ -258,7 +259,7 @@ function ResponsiveAppBar(props) {
           </Container>
         </AppBar>
       </ShrinkScroll>
-     {/*  <Box component="nav">
+      {/*  <Box component="nav">
           <Drawer
               container={container}
               variant="temporary"
