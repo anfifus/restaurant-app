@@ -1,7 +1,6 @@
 import "./Home.css";
 import React from "react";
 import NavBar from "../../components/core/NavBar";
-import Header from "../../components/home/Header";
 import Carousel from "react-material-ui-carousel";
 /* import ItemCarousel from "../../components/home/ItemCarousel";
  */ import IntroRestaurant from "../../components/home/IntroRestaurante";
@@ -9,8 +8,7 @@ import Contact from "../../components/home/Contacto";
 import FoodMenu from "../../components/home/MenuComida";
 import Fish from "../../components/core/Fish";
 import { Box, Button } from "@mui/material";
-import Restaurant from "../../components/home/Restaurant";
-
+import Restaurant from "../../components/home/Restaurant"; 
 import r1 from "../../components/Images/r-1.jpg";
 import r2 from "../../components/Images/r-2.jpg";
 import r3 from "../../components/Images/r-3.jpg";
@@ -52,12 +50,13 @@ function changeTheme(theme) {
   return theme === themeLight ? themeDark : themeLight;
 } */
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
         <div className="navContainer">
-          <NavBar color="secondary" enableColorOnDark={true} />
+      {console.log("The routes", props)}          
+          <NavBar color="secondary" enableColorOnDark={true}  />
         </div>
       </header>
 
@@ -88,13 +87,13 @@ function App() {
       <section id="introRestaurant">
         <IntroRestaurant color="secondary" enableColorOnDark={true} />
       </section>
-      <section id="The-letter">
+      <section id="the_letter">
         <Box maxWidth="100%">
           <Fish />
           <FoodMenu />
         </Box>
       </section>
-      <section id="The-restaurant">
+      <section id="the_restaurant">
         <Restaurant />
       </section>
       <section id="carouselRestaurant">
@@ -119,7 +118,7 @@ function App() {
           </Carousel>
         </div>
       </section>
-      <section id="The-contact">
+      <section id="the_contact">
         <Contact />
         <ThemeContext.Consumer>
           {({ theme, changeTheme }) => (

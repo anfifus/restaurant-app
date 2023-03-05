@@ -14,13 +14,13 @@ import FoodMenu from "./components/home/MenuComida";
 import Restaurant from "./components/home/Restaurant";
 import Contact from "./components/home/Contacto";
 import News from "./components/home/Noticias";
-
-const DEFAUT_THEME = "light";
+ 
+const DEFAULT_THEME = "light";
 
 const getDesignPalette = (mode) => ({
   palette: {
     mode,
-    ...(mode === DEFAUT_THEME
+    ...(mode === DEFAULT_THEME
       ? {
           primary: {
             main: "#0a95ff",
@@ -51,7 +51,7 @@ const getDesignPalette = (mode) => ({
   },
 }); */
 export const ThemeContext = createContext({
-  theme: DEFAUT_THEME,
+  theme: DEFAULT_THEME,
   changeTheme: () => {},
 });
 const router = createBrowserRouter([
@@ -82,9 +82,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [theme, setTheme] = useState(DEFAUT_THEME);
+  const [theme, setTheme] = useState(DEFAULT_THEME);
   const changeTheme = () =>
-    setTheme(theme === DEFAUT_THEME ? "dark" : DEFAUT_THEME);
+    setTheme(theme === DEFAULT_THEME ? "dark" : DEFAULT_THEME);
   return (
     <>
       <ThemeContext.Provider
@@ -104,7 +104,7 @@ function App() {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <App  />
   </React.StrictMode>
 );
 

@@ -161,12 +161,10 @@ function ResponsiveAppBar(props) {
                       <Typography textAlign="center" color="inherit">
                         <Suspense fallback="loading">
                           <HashLink
-                            to={
-                              page === "Reservation" ? "/" + page : "/#" + page
-                            }
-                          >
+                          to={page === "reservation" ? "/" + page : "/#" + page}
+                        >
                             {t(page)}
-                          </HashLink>
+                        </HashLink>  
                         </Suspense>
                       </Typography>
                     </MenuItem>
@@ -214,7 +212,7 @@ function ResponsiveAppBar(props) {
                   >
                     <Suspense fallback="loading">
                       <HashLink
-                        to={page === "Reservation" ? "/" + page : "/#" + page}
+                        to={page === "reservation" ? "/" + page : "/#" + page}
                       >
                         {t(page)}
                       </HashLink>
